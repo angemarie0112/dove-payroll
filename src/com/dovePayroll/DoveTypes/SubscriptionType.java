@@ -1,4 +1,4 @@
-package com.dovePayroll.doveTypes;
+package com.dovePayroll.DoveTypes;
 
 public class SubscriptionType {
 

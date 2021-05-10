@@ -1,10 +1,10 @@
-package com.dovePayroll.models;
+package com.dovePayroll.Models;
 
 import java.util.ArrayList;
 
-import com.dovePayroll.doveTypes.TaxRegion;
+import com.dovePayroll.DoveTypes.TaxRegion;
 
-public class Model_tax_region extends DBConnect {
+public class TaxRegion_Model extends DBConnect {
 	private int[] addTaxRegion(TaxRegion region) {
 		return null; // return the regionId and status
 	}

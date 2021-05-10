@@ -1,4 +1,4 @@
-package com.dovePayroll.doveTypes;
+package com.dovePayroll.DoveTypes;
 
 import java.util.ArrayList;
 

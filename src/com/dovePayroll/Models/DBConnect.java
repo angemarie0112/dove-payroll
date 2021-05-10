@@ -1,4 +1,4 @@
-package com.dovePayroll.models;
+package com.dovePayroll.Models;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
