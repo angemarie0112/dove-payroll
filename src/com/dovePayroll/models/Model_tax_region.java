@@ -30,7 +30,7 @@ public class Model_tax_region extends DBConnect {
 	}
 	
 	private int updateTaxRegion(TaxRegion region) throws SQLException {
-		// crate the update query string
+		// create the update query string
 		String sql = "UPDATE `taxRegion` SET `pensionRate`=?,`medicalInsuranceRate`=? WHERE `regionId` = ?";
 
 		// create the prepared statement for the update
@@ -51,8 +51,25 @@ public class Model_tax_region extends DBConnect {
 		return rs; // return the update status
 	}
 	
-	private int deleteTaxRegion(int regionID) {
-		return 1; // return an integer value representing the deletion status
+	private int deleteTaxRegion(int regionID) throws SQLException {
+		// create the deletion sql query
+		String sql = "DELETE FROM `taxRegion` WHERE `regionId`=?";
+
+		// creating the prepared statement
+		PreparedStatement ps = this.con().prepareStatement(sql);
+
+		// setting the values for the prepared statement parameters
+		ps.setInt(1, regionID);
+		
+		// executing the statement
+		int rs = ps.executeUpdate();
+		
+		// closing the prepared statement and the connection
+		this.con().close();
+		ps.close();
+		
+		// returning the execution result
+		return rs;
 	}
 	
 	private TaxRegion getTaxRegion(int regionID) {
