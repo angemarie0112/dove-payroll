@@ -26,11 +26,29 @@ public class Model_tax_region extends DBConnect {
 		this.con().close();
 		ps.close();
 
-		return rs; // return the regionId and status
+		return rs; // return the insertion status
 	}
 	
-	private int updateTaxRegion(TaxRegion region) {
-		return 1; // return an integer value representing the status of the update
+	private int updateTaxRegion(TaxRegion region) throws SQLException {
+		// crate the update query string
+		String sql = "UPDATE `taxRegion` SET `pensionRate`=?,`medicalInsuranceRate`=? WHERE `regionId` = ?";
+
+		// create the prepared statement for the update
+		PreparedStatement ps = this.con().prepareStatement(sql);
+
+		// set the variables for the prepared statement
+		ps.setDouble(1, region.getPensionRate());
+		ps.setDouble(2, region.getMedicalInsurance());
+		ps.setInt(3, region.getRegionID());
+
+		// execute the prepared statement 
+		int rs = ps.executeUpdate();
+
+		// close the connection and the prepared statement
+		this.con().close();
+		ps.close();
+
+		return rs; // return the update status
 	}
 	
 	private int deleteTaxRegion(int regionID) {
