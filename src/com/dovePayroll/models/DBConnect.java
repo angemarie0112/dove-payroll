@@ -4,9 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class DBConnect {
-	private String userName = "";
-	private String password = "";
-	private String dbName = "";
+	private String userName = "doveUser";
+	private String password = "D0v3@001";
+	private String dbName = "DovePayroll";
 	private Connection db;
 	
 	protected Connection con() {
