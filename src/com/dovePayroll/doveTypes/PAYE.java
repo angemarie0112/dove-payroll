@@ -48,6 +48,4 @@ public class PAYE {
 		this.lowerScheme = lowerScheme;
 	}
 	
-	
-	
 }

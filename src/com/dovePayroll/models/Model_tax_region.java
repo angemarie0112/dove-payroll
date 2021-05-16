@@ -1,21 +1,23 @@
 package com.dovePayroll.models;
 
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
+import com.dovePayroll.doveTypes.Company;
+import com.dovePayroll.doveTypes.PAYE;
 import com.dovePayroll.doveTypes.TaxRegion;
+import com.google.gson.Gson;
 
 public class Model_tax_region extends DBConnect {
 	private int addTaxRegion(TaxRegion region) throws SQLException {
 		// create the query string
-		String sql = "INSERT INTO `taxRegion`(`payeId`, `pensionRate`, `medicalInsuranceRate`) VALUES (?,?,?)";
+		String sql = "INSERT INTO `taxRegion`(`regionName` `pensionRate`, `medicalInsuranceRate`) VALUES (?,?,?)";
 
 		// create a prepared statement for the insertion
 		PreparedStatement ps = this.con().prepareStatement(sql);
 
 		// set the values for the prepared statement
-		ps.setInt(1, region.getPaye().getPayeID());
+		ps.setString(1, region.getRegionName());
 		ps.setDouble(2, region.getPensionRate());
 		ps.setDouble(3, region.getMedicalInsurance());
 
@@ -31,15 +33,16 @@ public class Model_tax_region extends DBConnect {
 	
 	private int updateTaxRegion(TaxRegion region) throws SQLException {
 		// create the update query string
-		String sql = "UPDATE `taxRegion` SET `pensionRate`=?,`medicalInsuranceRate`=? WHERE `regionId` = ?";
+		String sql = "UPDATE `taxRegion` SET `regionName`=?, `pensionRate`=?,`medicalInsuranceRate`=? WHERE `regionId` = ?";
 
 		// create the prepared statement for the update
 		PreparedStatement ps = this.con().prepareStatement(sql);
 
 		// set the variables for the prepared statement
-		ps.setDouble(1, region.getPensionRate());
-		ps.setDouble(2, region.getMedicalInsurance());
-		ps.setInt(3, region.getRegionID());
+		ps.setString(1, region.getRegionName());
+		ps.setDouble(2, region.getPensionRate());
+		ps.setDouble(3, region.getMedicalInsurance());
+		ps.setInt(4, region.getRegionID());
 
 		// execute the prepared statement 
 		int rs = ps.executeUpdate();
@@ -60,7 +63,7 @@ public class Model_tax_region extends DBConnect {
 
 		// setting the values for the prepared statement parameters
 		ps.setInt(1, regionID);
-		
+
 		// executing the statement
 		int rs = ps.executeUpdate();
 		
@@ -72,11 +75,135 @@ public class Model_tax_region extends DBConnect {
 		return rs;
 	}
 	
-	private TaxRegion getTaxRegion(int regionID) {
-		return null; // return the tax region object
+	private String getTaxRegion(int regionID) throws SQLException {
+		String sql = "SELECT * FROM `taxRegion` WHERE `regionId`="+ regionID;
+		java.sql.Statement st = this.con().createStatement();
+		ResultSet rs = st.executeQuery(sql);
+		
+		ArrayList<String> theRegion = new ArrayList<>();
+		
+		while(rs.next()) {
+			// creating objects of the fetched values
+			TaxRegion tmpRegion = new TaxRegion();
+			int rID = rs.getInt("regionId");
+			String regionName = rs.getString("regionName");
+			double pensionRate = rs.getDouble("pensionRate");
+			double medicalInsurance = rs.getDouble("medicalInsuranceRate");
+			
+			tmpRegion.setRegionID(rID);
+			tmpRegion.setRegionName(regionName);
+			tmpRegion.setPensionRate(pensionRate);
+			tmpRegion.setMedicalInsurance(medicalInsurance);
+			
+			// return the java object to json string
+			Gson gs = new Gson();
+			String taxRegionJson = gs.toJson(tmpRegion);
+			
+			// update the the region array list with the converted json string
+			theRegion.add(taxRegionJson);
+		}
+		
+		// closing the statement and the connection
+		this.con().close();
+		st.close();
+		
+		return theRegion.toString();	// return the tax region object
+	}
+
+	private String getRegionCompanies(int regionID) throws SQLException {
+		String sql = "SELECT * FROM `company` WHERE `regionId`="+ regionID;
+		java.sql.Statement st = this.con().createStatement();
+		ResultSet rs = st.executeQuery(sql);
+		
+		ArrayList<String> theCompanies = new ArrayList<>();
+		
+		while(rs.next()) {
+			// creating objects of the fetched values
+			Company company = new Company();
+			// values to be extracted after company class is created
+			
+			// return the java object to json string
+			Gson gs = new Gson();
+			String companyJson = gs.toJson(company);
+			
+			// update the the region array list with the converted json string
+			theCompanies.add(companyJson);
+		}
+		
+		// closing the statement and the connection
+		this.con().close();
+		st.close();
+		
+		return theCompanies.toString();	// return the tax region object
+	}
+
+	private String getRegionPaye(int regionID) throws SQLException {
+		String sql = "SELECT * FROM `paye` WHERE `regionId`="+ regionID;
+		java.sql.Statement st = this.con().createStatement();
+		ResultSet rs = st.executeQuery(sql);
+		
+		ArrayList<String> thePaye = new ArrayList<>();
+		
+		while(rs.next()) {
+			// creating objects of the fetched values
+			PAYE paye = new PAYE();
+			int payeId = rs.getInt("payeId");
+			String upperScheme = rs.getString("upperScheme");
+			String middleScheme = rs.getString("middleScheme");
+			String lowerScheme = rs.getString("lowerScheme");
+
+			paye.setPayeID(payeId);
+			paye.setUpperScheme(upperScheme);
+			paye.setMiddleScheme(middleScheme);
+			paye.setLowerScheme(lowerScheme);
+			
+			// return the java object to json string
+			Gson gs = new Gson();
+			String payeJson = gs.toJson(paye);
+			
+			// update the the paye array list with the converted json string
+			thePaye.add(payeJson);
+		}
+		
+		// closing the statement and the connection
+		this.con().close();
+		st.close();
+		
+		return thePaye.toString();	// return the tax region object
 	}
 	
-	public static ArrayList<TaxRegion> getAllTaxRegion(){
-		return null; // return an array list of TaxRegion objects
+	public String getAllTaxRegion() throws SQLException{
+		String sql = "SELECT * FROM `taxRegion`";
+		java.sql.Statement st = this.con().createStatement();
+		ResultSet rs = st.executeQuery(sql);
+		
+		ArrayList<String> theRegion = new ArrayList<>();
+		
+		while(rs.next()) {
+			// creating objects of the fetched values
+			TaxRegion tmpRegion = new TaxRegion();
+			int rID = rs.getInt("regionId");
+			String regionName = rs.getString("regionName");
+			double pensionRate = rs.getDouble("pensionRate");
+			double medicalInsurance = rs.getDouble("medicalInsuranceRate");
+			
+			tmpRegion.setRegionID(rID);
+			tmpRegion.setRegionName(regionName);
+			tmpRegion.setPensionRate(pensionRate);
+			tmpRegion.setMedicalInsurance(medicalInsurance);
+			
+			// return the java object to json string
+			Gson gs = new Gson();
+			String taxRegionJson = gs.toJson(tmpRegion);
+			
+			// update the the region array list with the converted json string
+			theRegion.add(taxRegionJson);
+		}
+		
+		// closing the statement and the connection
+		this.con().close();
+		st.close();
+		
+		return theRegion.toString();	// return the tax region object
 	}
 }
