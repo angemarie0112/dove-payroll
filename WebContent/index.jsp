@@ -1,10 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <%@ page import = "com.dovePayroll.languages.*" %>
 <%!
 	Language eng = new Language();
 	String location = "";
 %>
+<%
+	eng.setLanguageName("English");
+	eng.setModuleName("TaxRegion");
+	eng.setClassName("taxRegion_lang");
+			
+	location = eng.fetchFileLocation();
+%>
+		
+<%@ include file="/Language/languageLoader.jsp" %>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -15,15 +26,7 @@
 	</head>
 	<body>
 	
-		<%
-			eng.setLanguageName("English");
-			eng.setModuleName("TaxRegion");
-			eng.setClassName("taxRegion_lang");
-			
-			location = eng.fetchFileLocation();
-		%>
 		
-		<%@ include file = "/Language/English/TaxRegion/taxRegion_lang.jsp" %>
 		
 		<div class="w3-container w3-cyan">
 			<h3><% out.print(labels.get("main_heading")); %></h3>
