@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import = "com.dovePayroll.languages.*" %>
+<%!
+	Language eng = new Language();
+	String location = "";
+%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -11,28 +15,21 @@
 	</head>
 	<body>
 	
-		<%!
-			Language eng = new Language();
-			String location = "";
-		%>
 		<%
 			eng.setLanguageName("English");
 			eng.setModuleName("TaxRegion");
-			eng.setClassName("paye");
+			eng.setClassName("taxRegion_lang");
 			
 			location = eng.fetchFileLocation();
 		%>
 		
-		<div id="pageInclues"><%@ include file = "english.jsp" %></div>
+		<%@ include file = "/Language/English/TaxRegion/taxRegion_lang.jsp" %>
+		
 		<div class="w3-container w3-cyan">
 			<h3><% out.print(labels.get("main_heading")); %></h3>
 		</div>
 		<div class="w3-container w3-pale-blue">
 			<h4><% out.print(labels.get("sub_heading")); %></h4>
-			<p>
-				<% out.print(name); %> <br /> 
-				<% out.print(address); %> <br /> 
-			</p>
 			<p>
 				The location of the language file is: <% out.print(location); %>
 			</p>

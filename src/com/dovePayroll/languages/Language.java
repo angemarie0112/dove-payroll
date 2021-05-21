@@ -32,7 +32,7 @@ public class Language {
 	}
 	
 	public String fetchFileLocation() {
-		String location = "Language/" + this.languageName + "/" + this.moduleName + "/" + this.className + ".jsp";
+		String location = "/Language/" + this.languageName + "/" + this.moduleName + "/" + this.className + ".jsp";
 		return location;
 	}
 	
