@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
 <%! 
-	String selectedLanguage = "English";
+	String selectedLanguage = "Krio";
+	String selectedModule = "TaxRegion";
 	HashMap<String, String> labels = new HashMap<String, String>();
 %>
- <% if(selectedLanguage == "Krio"){ %>
- 	<%@ include file = "/Language/Krio/TaxRegion/taxRegion/taxRegion_kri.jsp" %>
+ <% if(selectedModule == "TaxRegion"){ %>
+ 	<%@ include file = "/Language/taxRegion_module_loader.jsp" %>
  <%} %>
- <% if(selectedLanguage == "English"){ %>
- 	<%@ include file = "/Language/English/TaxRegion/taxRegion/taxRegion_eng.jsp" %>
+ <% if(selectedModule == "Company"){ %>
+ 	<%@ include file = "/Language/company_module_loader.jsp" %>
  <%} %>
