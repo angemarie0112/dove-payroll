@@ -7,7 +7,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Home Page</title>
+		<title>Dove General Page</title>
 
 		<link rel="stylesheet" href="/Assets/bootstrap/css/mdb.min.css">
 
