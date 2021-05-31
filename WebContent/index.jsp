@@ -79,8 +79,9 @@
 	
 					<!-- the user profile dropdown -->
 					<div class="pr-4">
-						<div class="dropdown p-3">
-							<img src="#" alt="user_image" class="img-rounded dropdown-toggle" data-toggle="dropdown">
+						<div class="dropdown">
+							<img src="./Images/dannie.jpg" alt="user_image" class="rounded-circle" style="width: 30px; height: 35px;">
+							<a href="#dropdown-menu" class="dropdown-toggle" data-toggle="dropdown"></a>
 							<div class="dropdown-menu">
 								<a href="#" class="dropdown-item">Profile</a>
 								<a href="#" class="dropdown-item">Logout</a>
