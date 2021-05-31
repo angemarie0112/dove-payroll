@@ -26,6 +26,8 @@
 
 		<!-- custom js files -->
 		<script src="test.js?version=0.0.0"></script>
+
+		<!-- custom css -->
 	</head>
 	<body>
 		
@@ -42,7 +44,7 @@
 	
 					<!-- company logo -->
 					<div class="pl-2 pr-2">
-						<h5 style="color: rgba(7, 124, 202, 0.993);">
+						<h5 class="dove-page-heading">
 							<i class="fas fa-dove"></i>
 							 <strong>Dove Payroll</strong>
 							 <span>|</span>
@@ -101,6 +103,42 @@
 				</div>
 			</div>
 			
+		</div>
+
+		<!-- second row with site navigation -->
+		<div class="d-flex pl-4 shadow-sm sticky-top">
+			<!-- the navigation bar -->
+			<div class="flex-grow-1">
+				<nav class="navbar navbar-expand-md navbar-light">
+
+					<!-- the collapse icon -->
+					<button type="button" data-toggle="collapse" data-target="#dove_menu" class="navbar-toggler">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+
+					<!-- the collapse content / menu items -->
+					<div class="collapse navbar-collapse" id="dove_menu">
+						<ul class="navbar-nav">
+							<li class="nav-item active">
+								<a href="#" class="nav-link">Company Profile</a>
+							</li>
+							<li class="nav-item">
+								<a href="#" class="nav-link">Employees</a>
+							</li>
+							<li class="nav-item">
+								<a href="#" class="nav-link">Salary Profile</a>
+							</li>
+							<li class="nav-item">
+								<a href="#" class="nav-link">Paychques</a>
+							</li>
+							<li class="nav-item">
+								<a href="#" class="nav-link">Payroll</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+
+			</div>
 		</div>
 
 		<div class="container-fluid">
