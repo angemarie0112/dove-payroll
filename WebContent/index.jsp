@@ -17,6 +17,9 @@
 		<link rel="stylesheet" href="./Assets/fontawesome/css/all.css">
 		<link rel="stylesheet" href="./Assets/fontawesome/css/all.min.css">
 
+		<!-- custom css -->
+		<link rel="stylesheet" href="./Assets/Dove-CSS/common_pages.css?version=0.0.0">
+
 		<!-- jquery script -->
 		<script src="daniel.min.js?version=0.0.0"></script>
 
@@ -27,7 +30,6 @@
 		<!-- custom js files -->
 		<script src="test.js?version=0.0.0"></script>
 
-		<!-- custom css -->
 	</head>
 	<body>
 		
@@ -70,7 +72,7 @@
 									<i class="fas fa-search"></i>
 								</span>
 							</div>
-							<input type="text" name="dove_search" id="dove_search" class="form-control">
+							<input type="text" name="dove_search" id="dove_search" class="form-control" placeholder="search">
 						</div>
 					</div>
 	
@@ -106,7 +108,7 @@
 		</div>
 
 		<!-- second row with site navigation -->
-		<div class="d-flex pl-4 shadow-sm sticky-top">
+		<div class="d-flex pl-5 shadow-sm sticky-top">
 			<!-- the navigation bar -->
 			<div class="flex-grow-1">
 				<nav class="navbar navbar-expand-md navbar-light">
@@ -119,19 +121,19 @@
 					<!-- the collapse content / menu items -->
 					<div class="collapse navbar-collapse" id="dove_menu">
 						<ul class="navbar-nav">
-							<li class="nav-item active">
+							<li class="nav-item mr-1">
 								<a href="#" class="nav-link">Company Profile</a>
 							</li>
-							<li class="nav-item">
+							<li class="nav-item mr-1">
 								<a href="#" class="nav-link">Employees</a>
 							</li>
-							<li class="nav-item">
-								<a href="#" class="nav-link">Salary Profile</a>
+							<li class="nav-item mr-1 active">
+								<a href="#" class="nav-link focused">Salary Profile</a>
 							</li>
-							<li class="nav-item">
+							<li class="nav-item mr-1">
 								<a href="#" class="nav-link">Paychques</a>
 							</li>
-							<li class="nav-item">
+							<li class="nav-item mr-1">
 								<a href="#" class="nav-link">Payroll</a>
 							</li>
 						</ul>
@@ -141,31 +143,28 @@
 			</div>
 		</div>
 
-		<div class="container-fluid">
-			<div class="row mt-2">
-				<div class="col-sm-7"></div>
-				<div class="col-sm-5">
-					
-				</div>
+		<!-- third row with page content-->
+		<div class="d-flex flex-column dove-content align-items-stretch p-4">
+
+			<!-- the content header -->
+			<div class="ml-5 mr-5">
+				<h3><% out.print(labels.get("main_heading")); %></h3>
 			</div>
-			<div class="row">
-				<div class="col-12">
-					<h3><% out.print(labels.get("main_heading")); %></h3>
+
+			<div class="card dove-card mt-2 ml-5 mr-5">
+				<div class="card-header dove-card-header">
+					<h5><% out.print(labels.get("sub_heading")); %></h5>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-12">
-					<h4>
-						<i class="fas fa-user"></i>
-						<% out.print(labels.get("sub_heading")); %>
-					</h4>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-12">
+				<div class="card-body dove-card-body">
+					<p>
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam excepturi repellat, consequuntur ipsum nemo odio laborum nobis tempore unde fuga, ullam, sunt praesentium! Quis eum, saepe sed eveniet soluta minus.
+					</p>
+		
 					<h3><% out.print(labels.get("footer_heading")); %></h3>
 				</div>
+				
 			</div>
+			
 		</div>
 		
 		
