@@ -12,9 +12,13 @@
 		// set the selected language in session
 		String userLanguage = new String(selection);
 		session.setAttribute(userLang, userLanguage);	
-	}else {
+	} else {
 		String currSelection = (String)session.getAttribute(userLang);
 		session.setAttribute(userLang, currSelection);
+	}
+
+	if(session.getAttribute(userLang) == null){
+		session.setAttribute(userLang, "English");
 	}
 %>
  <% if(selectedModule == "TaxRegion"){ %>
