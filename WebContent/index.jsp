@@ -23,13 +23,12 @@
 		<!-- jquery script -->
 		<script src="daniel.min.js?version=0.0.0"></script>
 
-		<!-- bootstrap js files -->
-		<script src="./Assets/bootstrap/js/bootstrap.js"></script>
-		<script src="./Assets/bootstrap/js/bootstrap.min.js"></script>
-		
 		<!-- Popper JS -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
+		<!-- bootstrap js files -->
+		<script src="./Assets/bootstrap/js/bootstrap.js"></script>
+		<script src="./Assets/bootstrap/js/bootstrap.min.js"></script>
 
 		<!-- custom js files -->
 		<script src="test.js?version=0.0.0"></script>
