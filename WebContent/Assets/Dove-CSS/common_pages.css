@@ -73,3 +73,7 @@
     background-color: white;
     padding: 7px 2px 7px 30px;
 }
+
+.dove-main-content2 {
+    min-height: 100vh;
+}

@@ -12,7 +12,7 @@
     <title>Layout two</title>
 
     <!-- jquery script -->
-    <script src="daniel.min.js?version=0.0.0"></script>
+    <script src="daniel.min.js?version=0.2.0"></script>
 
     <!-- minified bootstrap css -->
     <link rel="stylesheet" href="./Assets/bootstrap/css/bootstrap.min.css">
@@ -22,13 +22,13 @@
     <link rel="stylesheet" href="./Assets/fontawesome/css/all.min.css">
 
     <!-- custom css -->
-    <link rel="stylesheet" href="./Assets/Dove-CSS/common_pages.css?version=0.1.0">
+    <link rel="stylesheet" href="./Assets/Dove-CSS/common_pages.css?version=0.8.0">
+    
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
     <!-- bootstrap js files -->
     <script src="./Assets/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
 
 
@@ -149,7 +149,7 @@
                  
         <!-- main content -->
         <div>
-            <div class="d-flex flex-column">
+            <div class="d-flex flex-column dove-main-content2">
                 
                  <!-- breadcrumbs and controlbuttons -->
                  <div>
@@ -173,7 +173,7 @@
                                 <i class="fas fa-ban"></i>
                                 <span class="saveBtn">Clear</span>
                             </button>
-                            <button type="button" class="btn btn-outline-primary btn-sm">
+                            <button type="button" onclick="window.history.back()" class="btn btn-outline-primary btn-sm">
                                 <i class="fas fa-arrow-left"></i>
                                 <span class="saveBtn">back</span>
                             </button>
