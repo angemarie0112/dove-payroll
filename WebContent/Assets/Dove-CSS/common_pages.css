@@ -13,9 +13,63 @@
 .dove-subcontent {
     background-color: white;
 }
-.dove-card-header {
+.dove-input-fields {
+    font-family: 'Font Awesome 5 free';
+    font-weight: lighter;
 }
 .active {
     border-bottom: 4px solid rgba(7, 124, 202, 0.993);
     margin-bottom: 0;
+}
+
+/* layout 2 css styles */
+.dove-page2-heading {
+    color: white;
+}
+.header-link-style {
+    color: grey;
+}
+.header-sublink-style {
+    color: white;
+}
+.layer2top {
+    background-color: rgb(0, 0, 12);
+}
+#dove-side-menu1 {
+    background-color: rgb(6, 6, 24);
+    min-height: 100vh;
+}
+#dove-side-menu2 {
+    background-color: rgb(10, 10, 26);
+    min-height: 100vh;
+}
+.icon-menus div {
+    padding: 5px;
+    text-align: center;
+}
+.menu-texts div {
+    padding: 5px;
+    color: rgb(177, 177, 177);
+}
+
+.dove-breadcrumbs a {
+    color: grey;
+    font-weight: bold;
+    font-size: 10pt;
+    margin-right: 5px;
+}
+.dove-breadcrumbs a::after {
+    content: ".";
+    padding-left: 5px;
+    font-size: 15pt;
+    font-weight: bold;
+}
+.dove-header2 {
+    font-size: 12pt;
+    font-weight: 500;
+}
+
+.dove-card-header {
+    background-color: white;
+    padding: 7px 2px 7px 30px;
 }
