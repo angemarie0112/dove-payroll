@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package com.dovePayroll.doveTypes;
 
 public class PAYE {
@@ -49,10 +48,4 @@ public class PAYE {
 		this.lowerScheme = lowerScheme;
 	}
 	
-=======
-package com.dovePayroll.DoveTypes;
-
-public class PAYE {
-//ui added
->>>>>>> 661616c463ebfff703b0c793a436c32d84a87b44
 }

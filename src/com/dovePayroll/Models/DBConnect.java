@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 package com.dovePayroll.models;
-=======
-package com.dovePayroll.Models;
->>>>>>> 661616c463ebfff703b0c793a436c32d84a87b44
 
 import java.sql.Connection;
 import java.sql.DriverManager;
