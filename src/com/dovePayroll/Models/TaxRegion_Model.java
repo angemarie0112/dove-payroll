@@ -3,7 +3,6 @@ package com.dovePayroll.Models;
 import java.sql.*;
 import java.util.ArrayList;
 
-<<<<<<< HEAD:src/com/dovePayroll/models/Model_tax_region.java
 import com.dovePayroll.doveTypes.Company;
 import com.dovePayroll.doveTypes.PAYE;
 import com.dovePayroll.doveTypes.TaxRegion;
@@ -30,13 +29,6 @@ public class Model_tax_region extends DBConnect {
 		ps.close();
 
 		return rs; // return the insertion status
-=======
-import com.dovePayroll.DoveTypes.TaxRegion;
-
-public class TaxRegion_Model extends DBConnect {
-	private int[] addTaxRegion(TaxRegion region) {
-		return null; // return the regionId and status
->>>>>>> 661616c463ebfff703b0c793a436c32d84a87b44:src/com/dovePayroll/Models/TaxRegion_Model.java
 	}
 	
 	private int updateTaxRegion(TaxRegion region) throws SQLException {
